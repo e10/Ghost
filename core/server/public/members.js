@@ -23,7 +23,7 @@ Array.prototype.forEach.call(document.querySelectorAll('form[data-members-form]'
         }
 
         form.classList.add('loading');
-        fetch('{{blog-url}}/members/api/send-magic-link/', {
+        fetch('/members/api/send-magic-link/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
