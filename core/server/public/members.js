@@ -73,7 +73,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-plan]'), f
             errorEl.innerText = '';
         }
         el.classList.add('loading');
-        fetch('{{blog-url}}/members/api/session', {
+        fetch('/members/api/session', {
             credentials: 'same-origin'
         }).then(function (res) {
             if (!res.ok) {
@@ -81,7 +81,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-plan]'), f
             }
             return res.text();
         }).then(function (identity) {
-            return fetch('{{blog-url}}/members/api/create-stripe-checkout-session/', {
+            return fetch('/members/api/create-stripe-checkout-session/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -143,7 +143,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-edit-billi
             errorEl.innerText = '';
         }
         el.classList.add('loading');
-        fetch('{{blog-url}}/members/api/session', {
+        fetch('/members/api/session', {
             credentials: 'same-origin'
         }).then(function (res) {
             if (!res.ok) {
@@ -151,7 +151,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-edit-billi
             }
             return res.text();
         }).then(function (identity) {
-            return fetch('{{blog-url}}/members/api/create-stripe-update-session/', {
+            return fetch('/members/api/create-stripe-update-session/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -195,7 +195,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-signout]')
         event.preventDefault();
         el.classList.remove('error');
         el.classList.add('loading');
-        fetch('{{blog-url}}/members/api/session', {
+        fetch('/members/api/session', {
             method: 'DELETE'
         }).then(function (res) {
             if (res.ok) {
@@ -224,7 +224,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-cancel-sub
             errorEl.innerText = '';
         }
 
-        return fetch('{{blog-url}}/members/api/session', {
+        return fetch('/members/api/session', {
             credentials: 'same-origin'
         }).then(function (res) {
             if (!res.ok) {
@@ -233,7 +233,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-cancel-sub
 
             return res.text();
         }).then(function (identity)  {
-            return fetch('{{blog-url}}/members/api/subscriptions/' + subscriptionId + '/', {
+            return fetch('/members/api/subscriptions/' + subscriptionId + '/', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -274,7 +274,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-continue-s
             errorEl.innerText = '';
         }
 
-        return fetch('{{blog-url}}/members/api/session', {
+        return fetch('/members/api/session', {
             credentials: 'same-origin'
         }).then(function (res) {
             if (!res.ok) {
@@ -283,7 +283,7 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-members-continue-s
 
             return res.text();
         }).then(function (identity)  {
-            return fetch('{{blog-url}}/members/api/subscriptions/' + subscriptionId + '/', {
+            return fetch('/members/api/subscriptions/' + subscriptionId + '/', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
